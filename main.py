@@ -1,6 +1,33 @@
+
+
 from books import *
 from members import *
 
+def showAllBooks():
+    allBooks = ''
+    if library_books != []:
+        for book in library_books:
+            allBooks = allBooks +  ("Book Title: " + book['title'] + "      Author: " + book['author'] + "      Availability : " + str(book['availability']) + "\n")
+        return(allBooks)
+    else:
+        return("No Books are in inventory")
+
+
+def showAllMembers():
+    allMembers = 'Current Members: \n'
+    if library_members != []:
+        for member in library_members:
+            allMembers = allMembers + member + '\n'
+        return(allMembers)
+    else:
+        return("No Members Registered!")
+
+def inputNewBook():
+
+    newTitle = input("Enter Title of New Book: ")
+    newAuthor = input("Enter Author of New Book: ")
+    add_book(newTitle, newAuthor)
+    return
 
 def displayMenu():
     print("\nLibrary Management System")
@@ -12,18 +39,7 @@ def displayMenu():
     print("5. Display all books.")
     print("6. Display all members.")
     print("7. Exit.")
-    print("----------------------------")1
-
-
-def inputTitle():
-    return(input('Enter Title'))
-
-def inputNewBook():
-
-    newTitle = input("Enter Title of New Book: ")
-    newAuthor = input("Enter Author of New Book: ")
-    add_book(newTitle, newAuthor)
-    return
+    print("----------------------------")
 
 def main():
 
@@ -51,8 +67,7 @@ def main():
 
         elif choice == "5":
             # Call function to display all books
-            print(library_books)
-            #TODO: temporary solution. Fix to be more fancy later
+            print(showAllBooks())
 
         elif choice == "6":
             # Call function to display all members

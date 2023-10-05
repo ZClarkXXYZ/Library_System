@@ -12,10 +12,12 @@ def find_member(name):
 
 def register_member(name):
     #Adds a member to library_members
-    if name not in library_members:
+    if not find_member(name):
         library_members.append(name)
+        return(True)
     else:
         print(name + ' is already a member')
+        return(False)
 
 def testMain():
     register_member('Joe Smith')
